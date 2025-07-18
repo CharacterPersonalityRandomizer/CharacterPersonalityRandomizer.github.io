@@ -101,7 +101,7 @@
                     <p><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
                     <p><strong>Gender:</strong> ${character.gender}</p>
                     <p><strong>Alignment:</strong> ${character.alignment}</p>
-                    <p><strong>Personality Type:</strong> <a href="${character.personalityType.link}" target="_blank">${character.personalityType.name}</a></p>
+                    <p><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
                 `;
             } catch (error) {
                 console.error('Error fetching character:', error);
