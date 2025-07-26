@@ -71,12 +71,22 @@
             color: #fff;
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
         #characterDisplay p strong {
             color: #66bb6a;
-            flex-grow: 1;
-            text-align: left;
+            margin-right: 5px; /* Add some space after the label */
+        }
+        .section-header-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .character-detail-line {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
         }
         .section-divider {
             border-top: 1px solid #4a4a4a;
@@ -200,15 +210,15 @@
 
             characterDisplay.innerHTML = `
                 <div id="identitySection">
-                    <p><strong>Identity</strong> <button class="reroll-button" id="rerollIdentityBtn">↻</button></p>
-                    <p><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
-                    <p><strong>Sex:</strong> ${character.sex}</p>
+                    <p class="section-header-line"><strong>Identity</strong> <button class="reroll-button" id="rerollIdentityBtn">↻</button></p>
+                    <p class="character-detail-line"><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
+                    <p class="character-detail-line"><strong>Sex:</strong> ${character.sex}</p>
                 </div>
                 <div class="section-divider"></div>
                 <div id="personalitySection">
-                    <p><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">↻</button></p>
-                    <p><strong>Alignment:</strong> ${character.alignment}</p>
-                    <p><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
+                    <p class="section-header-line"><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">↻</button></p>
+                    <p class="character-detail-line"><strong>Alignment:</strong> ${character.alignment}</p>
+                    <p class="character-detail-line"><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
                 </div>
             `;
 
