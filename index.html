@@ -69,9 +69,19 @@
             margin: 8px 0;
             font-size: 1.1em;
             color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         #characterDisplay p strong {
             color: #66bb6a;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .section-divider {
+            border-top: 1px solid #4a4a4a;
+            margin: 15px 0;
+            width: 100%;
         }
         #characterDisplay a {
             color: #66bb6a;
@@ -194,6 +204,7 @@
                     <p><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
                     <p><strong>Sex:</strong> ${character.sex}</p>
                 </div>
+                <div class="section-divider"></div>
                 <div id="personalitySection">
                     <p><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">↻</button></p>
                     <p><strong>Alignment:</strong> ${character.alignment}</p>
