@@ -79,9 +79,8 @@
         .section-header-line {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             width: 100%;
-            position: relative; /* For absolute positioning of the button */
-            padding-right: 40px; /* Make space for the button */
         }
         .character-detail-line {
             display: flex;
@@ -129,16 +128,18 @@
             color: #e0e0e0;
             padding: 5px 10px;
             font-size: 12px;
+            margin-left: 10px;
             border-radius: 5px;
             cursor: pointer;
             border: none;
-            position: absolute; /* Fixed position */
-            right: 0; /* Align to the far right */
-            top: 50%; /* Center vertically */
-            transform: translateY(-50%); /* Adjust for vertical centering */
         }
         .reroll-button:hover {
             background-color: #5a5a5a;
+        }
+        .reroll-button-wrapper {
+            position: absolute;
+            right: 10px;
+            top: 10px;
         }
     </style>
 </head>
@@ -214,13 +215,23 @@
 
             characterDisplay.innerHTML = `
                 <div id="identitySection" style="position: relative; display: flex; flex-direction: column;">
-                    <div class="section-header-line"><strong>Identity</strong> <button class="reroll-button" id="rerollIdentityBtn">↻</button></div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <p class="section-header-line"><strong>Identity</strong></p>
+                        <div class="reroll-button-wrapper" style="position: absolute; right: 0; top: 0;">
+                            <button class="reroll-button" id="rerollIdentityBtn">↻</button>
+                        </div>
+                    </div>
                     <p class="character-detail-line"><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
                     <p class="character-detail-line"><strong>Sex:</strong> ${character.sex}</p>
                 </div>
                 <div class="section-divider"></div>
-                <div id="personalitySection">
-                    <div class="section-header-line"><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">↻</button></div>
+                <div id="personalitySection" style="position: relative; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <p class="section-header-line"><strong>Personality</strong></p>
+                        <div class="reroll-button-wrapper" style="position: absolute; right: 0; top: 0;">
+                            <button class="reroll-button" id="rerollPersonalityBtn">↻</button>
+                        </div>
+                    </div>
                     <p class="character-detail-line"><strong>Alignment:</strong> ${character.alignment}</p>
                     <p class="character-detail-line"><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
                 </div>
