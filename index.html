@@ -11,7 +11,7 @@
             background-color: #1a1a1a;
             color: #e0e0e0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
@@ -190,12 +190,12 @@
 
             characterDisplay.innerHTML = `
                 <div id="identitySection">
-                    <p><strong>Identity</strong> <button class="reroll-button" id="rerollIdentityBtn">Reroll</button></p>
+                    <p><strong>Identity</strong> <button class="reroll-button" id="rerollIdentityBtn">↻</button></p>
                     <p><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
                     <p><strong>Sex:</strong> ${character.sex}</p>
                 </div>
                 <div id="personalitySection">
-                    <p><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">Reroll</button></p>
+                    <p><strong>Personality</strong> <button class="reroll-button" id="rerollPersonalityBtn">↻</button></p>
                     <p><strong>Alignment:</strong> ${character.alignment}</p>
                     <p><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
                 </div>
