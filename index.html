@@ -68,32 +68,22 @@
             margin: 8px 0;
             font-size: 1.1em;
             color: #fff;
-            display: flex;
-            align-items: center;
         }
         #characterDisplay p strong {
             color: #66bb6a;
             margin-right: 5px; /* Add some space after the label */
         }
-        .section-header-line {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
         .section-header {
-            grid-column: span 2;
-            border-top: 1px solid #444;
-            padding-top: 10px;
-            margin-top: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
         }
-        .character-detail-line {
-            display: flex;
+        .details-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px;
             align-items: center;
-            justify-content: flex-start;
-            width: 100%;
         }
         .section-divider {
             border-top: 1px solid #4a4a4a;
@@ -134,7 +124,6 @@
             background-color: #4a4a4a;
             color: #e0e0e0;
             padding: 5px 10px;
-            margin-left: auto;
             font-size: 12px;
             border-radius: 5px;
             cursor: pointer;
@@ -143,14 +132,6 @@
         .reroll-button:hover {
             background-color: #5a5a5a;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        
     </style>
 </head>
 <body>
@@ -224,23 +205,25 @@
             }
 
             characterDisplay.innerHTML = `
-                <div class="grid-container">
-                    <div id="identitySection">
-                        <div class ="section-header">
-                            <p class="section-header-line"><strong>Identity</strong>
-                            <button class="reroll-button" id="rerollIdentityBtn">↻</button>
-                        </div>
-                        <p class="character-detail-line"><strong>Name:</strong> ${character.firstName} ${character.lastName}</p>
-                        <p class="character-detail-line"><strong>Sex:</strong> ${character.sex}</p>
+                <div id="identitySection">
+                    <div class="section-header">
+                        <strong>Identity</strong>
+                        <button class="reroll-button" id="rerollIdentityBtn">↻</button>
                     </div>
-                    <div class="section-divider"></div>
-                    <div id="personalitySection">
-                        <div class ="section-header">
-                            <p class="section-header-line"><strong>Personality</strong> </p>
-                            <button class="reroll-button" id="rerollPersonalityBtn">↻</button>
-                        </div>
-                        <p class="character-detail-line"><strong>Alignment:</strong> ${character.alignment}</p>
-                        <p class="character-detail-line"><strong>Personality Type:</strong> ${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
+                    <div class="details-grid">
+                        <p><strong>Name:</strong></p><p>${character.firstName} ${character.lastName}</p>
+                        <p><strong>Sex:</strong></p><p>${character.sex}</p>
+                    </div>
+                </div>
+                <div class="section-divider"></div>
+                <div id="personalitySection">
+                    <div class="section-header">
+                        <strong>Personality</strong>
+                        <button class="reroll-button" id="rerollPersonalityBtn">↻</button>
+                    </div>
+                    <div class="details-grid">
+                        <p><strong>Alignment:</strong></p><p>${character.alignment}</p>
+                        <p><strong>Personality Type:</strong></p><p>${character.personalityType.name} <a href="${character.personalityType.link}" target="_blank">(link)</a></p>
                     </div>
                 </div>
             `;
