@@ -30,6 +30,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 500px;
+            position: relative;
         }
         h1 {
             color: #66bb6a; /* Green */
@@ -63,6 +64,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
+            position: relative;
         }
         #characterDisplay p {
             margin: 8px 0;
@@ -128,9 +130,21 @@
             border-radius: 5px;
             cursor: pointer;
             border: none;
+            position: absolute;
+            right: 20px;
         }
         .reroll-button:hover {
             background-color: #5a5a5a;
+        }
+        #rerollIdentityBtn {
+            top: 20px;
+        }
+        #rerollPersonalityBtn {
+            top: 120px;
+        }
+        .section-header-text {
+            display: block;
+            width: 100%;
         }
     </style>
 </head>
@@ -205,10 +219,12 @@
             }
 
             characterDisplay.innerHTML = `
+                <button class="reroll-button" id="rerollIdentityBtn">↻</button>
+                <button class="reroll-button" id="rerollPersonalityBtn">↻</button>
+                
                 <div id="identitySection">
                     <div class="section-header">
-                        <strong>Identity</strong>
-                        <button class="reroll-button" id="rerollIdentityBtn">↻</button>
+                        <strong class="section-header-text">Identity</strong>
                     </div>
                     <div class="details-grid">
                         <p><strong>Name:</strong></p><p>${character.firstName} ${character.lastName}</p>
@@ -218,8 +234,7 @@
                 <div class="section-divider"></div>
                 <div id="personalitySection">
                     <div class="section-header">
-                        <strong>Personality</strong>
-                        <button class="reroll-button" id="rerollPersonalityBtn">↻</button>
+                        <strong class="section-header-text">Personality</strong>
                     </div>
                     <div class="details-grid">
                         <p><strong>Alignment:</strong></p><p>${character.alignment}</p>
