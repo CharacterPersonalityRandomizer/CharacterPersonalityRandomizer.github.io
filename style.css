@@ -24,6 +24,8 @@
             text-align: center;
             width: 500px;
             position: relative;
+            margin-top: 60px;
+            margin-bottom: 60px;
         }
         h1 {
             color: #66bb6a; /* Green */
@@ -138,5 +140,19 @@
         .section-header-text {
             display: block;
             width: 100%;
+        }
+        .banner {
+            width: 728px;
+            height: 90px;
+        }
+        .top-banner {
+        }
+        .bottom-banner {
+        }
+        .side-banner-left {
+            margin-right: 60px;
+        }
+        .side-banner-right {
+            margin-left: 60px;
         }
     
